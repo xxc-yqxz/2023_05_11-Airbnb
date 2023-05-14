@@ -7,6 +7,7 @@ import HomeBanner from "./c-cpns/home-banner";
 import HomeSectionV1 from "./c-cpns/home-section-v1";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
+import SectionTabs from "@/components/section-tabs";
 
 const Home = memo(() => {
   /* 从redux中获取数据 */
@@ -18,6 +19,9 @@ const Home = memo(() => {
     }),
     shallowEqual
   );
+
+  /* 数据的转换 */
+  const tabNames = discountInfo.dest_address?.map((item) => item.name);
 
   // 发起进行的网络请求
   const dispatch = useDispatch();
@@ -35,6 +39,7 @@ const Home = memo(() => {
             title={discountInfo.title}
             subtitle={discountInfo.subtitle}
           />
+          <SectionTabs tabNames={tabNames} />
           <SectionRooms
             roomList={discountInfo.dest_list?.["成都"]}
             itemWidth="33.33%"
