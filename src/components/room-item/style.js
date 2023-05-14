@@ -59,8 +59,8 @@ export const ItemWrapper = styled.div`
       margin: 0 2px 0 4px;
     }
 
-    .MuiRating-decimal {
-      margin-right: -2px;
+    .MuiRating-root {
+      margin-right: -3px;
     }
   }
 `;
