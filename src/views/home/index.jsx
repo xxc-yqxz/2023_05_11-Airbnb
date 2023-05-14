@@ -1,5 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
-import hyReuqest from "@/services";
+import React, { memo } from "react";
 
 const Home = memo(() => {
   return (
