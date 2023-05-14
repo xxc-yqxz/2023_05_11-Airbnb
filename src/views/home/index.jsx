@@ -1,5 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { Rating } from "@mui/material";
+import { Button } from "antd";
 
 import { HomeWrapper } from "./style";
 import { fetchHomeDataAction } from "@/store/modules/home";
@@ -27,6 +29,16 @@ const Home = memo(() => {
       <HomeBanner />
       <div className="content">
         <div className="good-price">
+          <Rating name="read-only" value={5} readOnly />
+          <>
+            <Button type="primary">Primary Button</Button>
+            <Button>Default Button</Button>
+            <Button type="dashed">Dashed Button</Button>
+            <br />
+            <Button type="text">Text Button</Button>
+            <Button type="link">Link Button</Button>
+          </>
+
           <SectionHeader title={goodPriceInfo.title} />
           <ul className="room-list">
             {goodPriceInfo?.list?.slice(0, 8).map((item) => {
