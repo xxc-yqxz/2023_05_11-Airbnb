@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import { HomeWrapper } from "./style";
@@ -21,7 +21,12 @@ const Home = memo(() => {
   );
 
   /* 数据的转换 */
+  const [name, setName] = useState("佛山");
   const tabNames = discountInfo.dest_address?.map((item) => item.name);
+
+  const tabClickHandle = useCallback(function (index, name) {
+    setName(name);
+  }, []);
 
   // 发起进行的网络请求
   const dispatch = useDispatch();
@@ -39,9 +44,9 @@ const Home = memo(() => {
             title={discountInfo.title}
             subtitle={discountInfo.subtitle}
           />
-          <SectionTabs tabNames={tabNames} />
+          <SectionTabs tabNames={tabNames} tabClick={tabClickHandle} />
           <SectionRooms
-            roomList={discountInfo.dest_list?.["成都"]}
+            roomList={discountInfo.dest_list?.[name]}
             itemWidth="33.33%"
           />
         </div>
