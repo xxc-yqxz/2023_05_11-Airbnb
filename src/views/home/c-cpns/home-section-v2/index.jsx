@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback,  useState } from "react";
 import { SectionV2Wrapper } from "./style";
 import SectionHeader from "@/components/section-header";
 import SectionTabs from "@/components/section-tabs";

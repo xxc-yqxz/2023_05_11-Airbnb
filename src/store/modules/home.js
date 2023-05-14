@@ -2,6 +2,7 @@ import {
   getHomeDiscountData,
   getHomeGoodPriceData,
   getHomeHighScoreData,
+  getHomeHotRecommendData,
 } from "@/services";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -22,6 +23,10 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeDiscountData().then((res) => {
       dispatch(changeDiscountInfoAction(res));
     });
+
+    getHomeHotRecommendData().then((res) => {
+      dispatch(changeRecommendInfoAction(res));
+    });
   }
 );
 
@@ -31,6 +36,7 @@ const homeSlice = createSlice({
     goodPriceInfo: {},
     highScoreInfo: {},
     discountInfo: {},
+    recommendInfo: {},
   },
   reducers: {
     changeGoodPriceInfoAction(state, { payload }) {
@@ -42,6 +48,9 @@ const homeSlice = createSlice({
     changeDiscountInfoAction(state, { payload }) {
       state.discountInfo = payload;
     },
+    changeRecommendInfoAction(state, { payload }) {
+      state.recommendInfo = payload;
+    },
   },
   extraReducers: {
     /* [fetchHomeDataAction.fulfilled](state, { payload }) {
@@ -51,10 +60,12 @@ const homeSlice = createSlice({
   },
 });
 
+// 此处导出的目的是为了在上方dispatch时能找到对应的变量
 export const {
   changeGoodPriceInfoAction,
   changeHighScoreInfoAction,
   changeDiscountInfoAction,
+  changeRecommendInfoAction,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;
