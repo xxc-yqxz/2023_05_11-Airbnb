@@ -29,3 +29,9 @@ export function getHomeLongforData() {
     url: "/home/longfor",
   });
 }
+
+export function getHomePlusData() {
+  return hyReuqest.get({
+    url: "/home/plus",
+  });
+}
