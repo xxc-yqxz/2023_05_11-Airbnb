@@ -15,7 +15,6 @@ const Indicator = memo((props) => {
     // 2.content的宽度
     const contentWidth = contentRef.current.clientWidth;
     const contentScroll = contentRef.current.scrollWidth;
-    console.log(contentWidth);
 
     // 3.获取selectIndex要滚动的距离
     let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5;
