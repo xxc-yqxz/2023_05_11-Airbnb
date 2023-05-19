@@ -18,7 +18,7 @@ export const HeaderWrapper = styled.div`
 
     border-bottom: 1px solid #eee;
     border-bottom-color: ${(props) =>
-      props.theme.isAlpha ? "rgba(255,255,255,0)" : "rgba(255,255,255,1)"};
+      props.theme.isAlpha ? "rgba(233,233,233,0)" : "rgba(233,233,233,1)"};
 
     .top {
       display: flex;
