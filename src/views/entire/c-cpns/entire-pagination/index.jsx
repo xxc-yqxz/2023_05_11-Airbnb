@@ -4,7 +4,6 @@ import Pagination from "@mui/material/Pagination";
 import { PaginationWrapper } from "./style";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {
-  changeCurrentPageAction,
   fetchRoomListAction,
 } from "@/store/modules/entire/actionCreators";
 
